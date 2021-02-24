@@ -12,9 +12,11 @@ interface CustomInputProps {
 
 const CustomInput = (props: CustomInputProps) => {
   return (
-    <ContainerInput>
+    <ContainerInput onError={props.onError}>
       <Label>{props.label}</Label>
       <CustomTextInput
+        onError={props.onError}
+        autoCapitalize={'none'}
         onChangeText={props.onChangeText}
         value={props.value}
         placeholder={props.placeHolder}

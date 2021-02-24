@@ -3,10 +3,15 @@ import {REGULAR_FONT} from '../../assets';
 import COLORS from '../../global/colors';
 import THEME, {WINDOW_WIDTH} from '../../global/theme';
 
-export const ContainerInput = styled.View`
+type InputPropsError = {
+  onError: boolean;
+};
+
+export const ContainerInput = styled.View<InputPropsError>`
   width: ${WINDOW_WIDTH >= 400 ? 297 : 256}px;
   height: 48px;
-  border: 1px solid ${COLORS.borderColor};
+  border: 1px solid
+    ${(props) => (props.onError ? COLORS.error : COLORS.borderColor)};
   position: relative;
   border-radius: 8px;
   margin: 19px 0;
@@ -19,7 +24,9 @@ export const Label = styled.Text`
   font-family: ${REGULAR_FONT};
 `;
 
-export const CustomTextInput = styled.TextInput`
+export const CustomTextInput = styled.TextInput<InputPropsError>`
   height: 100%;
   padding: 0 17px;
+  font-family: ${REGULAR_FONT};
+  color: ${(props) => (props.onError ? COLORS.error : COLORS.borderColor)};
 `;

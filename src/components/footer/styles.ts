@@ -11,12 +11,19 @@ export const ContainerFooter = styled.View`
   margin-top: 8%;
 `;
 
-export const SignInButton = styled(LinearGradient)`
+export const LinearGradientSignInButton = styled(LinearGradient)`
   height: 48px;
   width: ${WINDOW_WIDTH * 0.4}px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+`;
+
+export const SignInButton = styled.TouchableOpacity`
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const SignInText = styled.Text`

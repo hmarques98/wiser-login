@@ -9,7 +9,7 @@ interface CustomContainerProps {
 const CustomContainer = (props: CustomContainerProps) => {
   return (
     <Container>
-      <Header>Olá, sejá {'\n'} bem-vindo!</Header>
+      <Header>Olá, seja {'\n'} bem-vindo!</Header>
       <Description>Para acessar a plataforma, faça seu login.</Description>
       {props.children}
       <Footer />

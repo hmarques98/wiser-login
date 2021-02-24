@@ -1,9 +1,12 @@
 import * as React from 'react';
 import COLORS from '../../global/colors';
+import {submitForm} from '../../store/features/sectionSlice';
+import {useAppDispatch} from '../../store/store';
 import {
   ContainerFooter,
   ForgotInfoContainer,
   ForgotInfoText,
+  LinearGradientSignInButton,
   SignInButton,
   SignInText,
   ViewBorderTextClick,
@@ -25,14 +28,20 @@ const endColorGradient: IPositionColorGradient = {
   y: 1,
 };
 const Footer = () => {
+  const dispatch = useAppDispatch();
   return (
     <ContainerFooter>
-      <SignInButton
+      <LinearGradientSignInButton
         start={startColorGradient}
         end={endColorGradient}
         colors={[COLORS.accentColor, COLORS.gradientColorRight]}>
-        <SignInText>Entrar</SignInText>
-      </SignInButton>
+        <SignInButton
+          onPress={() => {
+            dispatch(submitForm());
+          }}>
+          <SignInText>Entrar</SignInText>
+        </SignInButton>
+      </LinearGradientSignInButton>
       <ForgotInfoContainer>
         <ForgotInfoText>
           Esqueceu login ou senha? {'\n'} Clique{' '}
